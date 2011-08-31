@@ -7,6 +7,7 @@ Supports all the API calls described in the (Etherpad Lite API page)[1]
 Setup
 -----
 
+    $ npm install etherpad-lite-client
 
 
 Usage
