@@ -76,4 +76,14 @@ It has two attributes: `code` and `message`.
 `data` is a JavaScript object from the Etherpad response or `null` (on error).
 
 
+License
+-------
+
+This code is released under the MIT (Expat) license.
+
+See the attached file LICENSE.txt for more details or visit:
+
+<http://www.opensource.org/licenses/MIT>
+
+
 [1]: https://github.com/Pita/etherpad-lite/wiki/HTTP-API
