@@ -1,7 +1,7 @@
 Etherpad Lite API
 =================
 
-Supports all the API calls described in the (Etherpad Lite API page)[1]
+Supports all the API calls described in the [Etherpad Lite API page][1].
 
 
 Setup
@@ -54,6 +54,8 @@ The callback function should look like this:
 
       // some code
     }
+
+The callback function takes two argument: `error` and `data`.
 
 #### error ###
 `error` is null if everything is fine. Otherwise it's a JavaScript object that
