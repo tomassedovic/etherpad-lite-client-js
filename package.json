@@ -5,5 +5,8 @@
   "author": "Tomas Sedovic <tomas@sedovic.cz>",
   "keywords": ["etherpad", "api"],
   "repository": "git://github.com/tomassedovic/etherpad-lite-client",
+  "dependencies": {
+    "underscore": "1.1.x"
+  },
   "engines": { "node": ">= 0.4.1 < 0.5.0" }
 }
