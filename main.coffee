@@ -1,5 +1,6 @@
 http = require 'http'
 url = require 'url'
+querystring = require 'querystring'
 u_ = require 'underscore'
 
 
@@ -32,7 +33,7 @@ exports.connect = (options={}) ->
       res.on 'end', () ->
         try
           response = JSON.parse chunks.join('')
-        catch
+        catch error
           callback { code: -1, message: 'cannot parse the API response' }, null
           return
 
@@ -70,8 +71,10 @@ exports.connect = (options={}) ->
     'isPasswordProtected',
   ]
   for functionName in apiFunctions
-    api[functionName] = (args, callback) ->
-      api.call(functionName, args, callback)
+    do (functionName) ->
+      api[functionName] = (args, callback) ->
+        api.call(functionName, args, callback)
+        return null
 
 
   return api
