@@ -8,5 +8,9 @@
   "dependencies": {
     "underscore": "1.1.x"
   },
+  "main": "./main.js",
+  "scripts": {
+    "build": "coffee --compile *.coffee"
+  },
   "engines": { "node": "0.4.x" }
 }
