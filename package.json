@@ -13,9 +13,5 @@
     "underscore": "1.1.x"
   },
   "main": "./main.js",
-  "scripts": {
-    "build": "coffee --compile *.coffee",
-    "prepublish": "npm run build"
-  },
   "engines": { "node": "0.4.x" }
 }
