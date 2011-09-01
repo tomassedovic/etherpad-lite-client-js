@@ -19,6 +19,9 @@ exports.connect = (options={}) ->
       callback = functionArgs
       functionArgs = {}
 
+    callback ||= () ->
+      # pass
+
     rootPath = '/api/1/'
     apiOptions = u_.extend { 'apikey': @options.apikey }, functionArgs
     httpOptions =
