@@ -15,7 +15,7 @@
   "main": "./main.js",
   "scripts": {
     "build": "coffee --compile *.coffee",
-    "prepublish": "git clean -x -f; npm run build"
+    "prepublish": "npm run build"
   },
   "engines": { "node": "0.4.x" }
 }
