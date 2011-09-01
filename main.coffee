@@ -15,13 +15,6 @@ exports.connect = (options={}) ->
 
 
   api.call = (functionName, functionArgs, callback) ->
-    if arguments.length is 2 and u_.isFunction(functionArgs)
-      callback = functionArgs
-      functionArgs = {}
-
-    callback ||= () ->
-      # pass
-
     rootPath = '/api/1/'
     apiOptions = u_.extend { 'apikey': @options.apikey }, functionArgs
     httpOptions =
@@ -76,6 +69,13 @@ exports.connect = (options={}) ->
   for functionName in apiFunctions
     do (functionName) ->
       api[functionName] = (args, callback) ->
+        if arguments.length is 1 and u_.isFunction(args)
+          callback = args
+          args = {}
+
+        callback ||= () ->
+          # pass
+
         api.call(functionName, args, callback)
         return null
 
