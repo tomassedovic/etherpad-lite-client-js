@@ -13,7 +13,7 @@ Setup
 Usage
 -----
 
-    api = require('etherpad-lite-api')
+    api = require('etherpad-lite-client')
     etherpad = api.connect({
       apikey: 'UcCGa6fPpkLflvPVBysOKs9eeuWV08Ul',
       host: 'localhost',
@@ -36,7 +36,7 @@ Certain API calls require that you pass some arguments:
     }
     etherpad.createGroupPad(args, function(error, data) {
       if(error) console.error('Error creating pad: ' + error.message)
-      else console.log('New pad created')
+      else console.log('New pad created: ' +  + data.padID)
     })
 
 
