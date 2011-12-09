@@ -1,7 +1,7 @@
 {
   "name": "etherpad-lite-client",
   "description": "Wrapper for the Etherpad Lite API",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "author": "Tomas Sedovic <tomas@sedovic.cz>",
   "keywords": ["etherpad", "api"],
   "homepage": "https://github.com/tomassedovic/etherpad-lite-client-js",
