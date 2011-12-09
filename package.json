@@ -13,5 +13,5 @@
     "underscore": "1.1.x"
   },
   "main": "./main.js",
-  "engines": { "node": "0.4.x" }
+  "engines": { "node": ">= 0.4.0 < 0.7.0" }
 }
