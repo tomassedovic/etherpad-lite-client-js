@@ -57,6 +57,7 @@ exports.connect = (options={}) ->
     'listSessionsOfAuthor',
     'getText',
     'setText',
+    'getHTML',
     'createPad',
     'getRevisionsCount',
     'deletePad',
