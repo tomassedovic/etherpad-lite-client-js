@@ -51,6 +51,7 @@ exports.connect = (options={}) ->
     'createGroupPad'
     'createAuthor'
     'createAuthorIfNotExistsFor'
+    'listPadsOfAuthor'
     'createSession'
     'deleteSession'
     'getSessionInfo'
@@ -61,13 +62,17 @@ exports.connect = (options={}) ->
     'getHTML'
     'createPad'
     'getRevisionsCount'
+    'getUsersCount'
     'deletePad'
     'getReadOnlyID'
     'setPublicStatus'
     'getPublicStatus'
     'setPassword'
     'isPasswordProtected'
+    'listAuthorsOfPad'
+    'getLastEdited'
   ]
+
   for functionName in apiFunctions
     do (functionName) ->
       api[functionName] = (args, callback) ->
