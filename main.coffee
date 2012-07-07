@@ -44,29 +44,29 @@ exports.connect = (options={}) ->
 
 
   apiFunctions = [
-    'createGroup',
-    'createGroupIfNotExistsFor',
-    'deleteGroup',
-    'listPads',
-    'createGroupPad',
-    'createAuthor',
-    'createAuthorIfNotExistsFor',
-    'createSession',
-    'deleteSession',
-    'getSessionInfo',
-    'listSessionsOfGroup',
-    'listSessionsOfAuthor',
-    'getText',
-    'setText',
-    'getHTML',
-    'createPad',
-    'getRevisionsCount',
-    'deletePad',
-    'getReadOnlyID',
-    'setPublicStatus',
-    'getPublicStatus',
-    'setPassword',
-    'isPasswordProtected',
+    'createGroup'
+    'createGroupIfNotExistsFor'
+    'deleteGroup'
+    'listPads'
+    'createGroupPad'
+    'createAuthor'
+    'createAuthorIfNotExistsFor'
+    'createSession'
+    'deleteSession'
+    'getSessionInfo'
+    'listSessionsOfGroup'
+    'listSessionsOfAuthor'
+    'getText'
+    'setText'
+    'getHTML'
+    'createPad'
+    'getRevisionsCount'
+    'deletePad'
+    'getReadOnlyID'
+    'setPublicStatus'
+    'getPublicStatus'
+    'setPassword'
+    'isPasswordProtected'
   ]
   for functionName in apiFunctions
     do (functionName) ->
