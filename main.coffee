@@ -5,7 +5,8 @@ _ = require 'underscore'
 
 
 exports.connect = (options={}) ->
-  return unless 'apikey' of options
+  unless 'apikey' of options
+    throw new Error('You must specify etherpad-lite apikey')
 
   api = {}
   api.options = _.extend {}, options
