@@ -1,14 +1,14 @@
 http = require 'http'
 url = require 'url'
 querystring = require 'querystring'
-u_ = require 'underscore'
+_ = require 'underscore'
 
 
 exports.connect = (options={}) ->
   return unless 'apikey' of options
 
   api = {}
-  api.options = u_.extend {}, options
+  api.options = _.extend {}, options
 
   api.options.host ||= 'localhost'
   api.options.port ||= 9001
@@ -16,7 +16,7 @@ exports.connect = (options={}) ->
 
   api.call = (functionName, functionArgs, callback) ->
     rootPath = '/api/1/'
-    apiOptions = u_.extend { 'apikey': @options.apikey }, functionArgs
+    apiOptions = _.extend { 'apikey': @options.apikey }, functionArgs
     httpOptions =
       host: @options.host
       port: @options.port
@@ -70,7 +70,7 @@ exports.connect = (options={}) ->
   for functionName in apiFunctions
     do (functionName) ->
       api[functionName] = (args, callback) ->
-        if arguments.length is 1 and u_.isFunction(args)
+        if arguments.length is 1 and _.isFunction(args)
           callback = args
           args = {}
 
