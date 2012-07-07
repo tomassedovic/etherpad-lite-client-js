@@ -74,8 +74,7 @@ exports.connect = (options={}) ->
           callback = args
           args = {}
 
-        callback ||= () ->
-          # pass
+        callback = (->) unless callback?
 
         api.call(functionName, args, callback)
         return null
