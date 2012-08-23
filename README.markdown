@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/tomassedovic/etherpad-lite-client-js.png)](http://travis-ci.org/tomassedovic/etherpad-lite-client-js)
 Etherpad Lite API
 =================
 
