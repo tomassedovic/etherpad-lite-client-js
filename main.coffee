@@ -49,9 +49,11 @@ exports.connect = (options={}) ->
     'deleteGroup'
     'listPads'
     'createGroupPad'
+    'listAllGroups'
     'createAuthor'
     'createAuthorIfNotExistsFor'
     'listPadsOfAuthor'
+    'getAuthorName'
     'createSession'
     'deleteSession'
     'getSessionInfo'
@@ -62,7 +64,8 @@ exports.connect = (options={}) ->
     'getHTML'
     'createPad'
     'getRevisionsCount'
-    'getUsersCount'
+    'padUsersCount'
+    'padUsers'
     'deletePad'
     'getReadOnlyID'
     'setPublicStatus'
@@ -71,6 +74,7 @@ exports.connect = (options={}) ->
     'isPasswordProtected'
     'listAuthorsOfPad'
     'getLastEdited'
+    'sendClientsMessage'
   ]
 
   for functionName in apiFunctions
