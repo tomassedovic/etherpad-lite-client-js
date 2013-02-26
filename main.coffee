@@ -16,7 +16,7 @@ exports.connect = (options={}) ->
 
 
   api.call = (functionName, functionArgs, callback) ->
-    rootPath = '/api/1/'
+    rootPath = '/api/1.2.1/'
     apiOptions = _.extend { 'apikey': @options.apikey }, functionArgs
     httpOptions =
       host: @options.host
@@ -75,6 +75,7 @@ exports.connect = (options={}) ->
     'listAuthorsOfPad'
     'getLastEdited'
     'sendClientsMessage'
+    'listAllPads'
   ]
 
   for functionName in apiFunctions
