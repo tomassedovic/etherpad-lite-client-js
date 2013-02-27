@@ -24,7 +24,7 @@
     (_base1 = api.options).port || (_base1.port = 9001);
     api.call = function(functionName, functionArgs, callback) {
       var apiOptions, chunks, httpOptions, req, rootPath;
-      rootPath = '/api/1/';
+      rootPath = api.options.rootPath || '/api/1.2.1/';
       apiOptions = _.extend({
         'apikey': this.options.apikey
       }, functionArgs);
@@ -66,7 +66,7 @@
         }, null);
       });
     };
-    apiFunctions = ['createGroup', 'createGroupIfNotExistsFor', 'deleteGroup', 'listPads', 'createGroupPad', 'listAllGroups', 'createAuthor', 'createAuthorIfNotExistsFor', 'listPadsOfAuthor', 'getAuthorName', 'createSession', 'deleteSession', 'getSessionInfo', 'listSessionsOfGroup', 'listSessionsOfAuthor', 'getText', 'setText', 'getHTML', 'createPad', 'getRevisionsCount', 'padUsersCount', 'padUsers', 'deletePad', 'getReadOnlyID', 'setPublicStatus', 'getPublicStatus', 'setPassword', 'isPasswordProtected', 'listAuthorsOfPad', 'getLastEdited', 'sendClientsMessage'];
+    apiFunctions = ['createGroup', 'createGroupIfNotExistsFor', 'deleteGroup', 'listPads', 'createGroupPad', 'listAllGroups', 'createAuthor', 'createAuthorIfNotExistsFor', 'listPadsOfAuthor', 'getAuthorName', 'createSession', 'deleteSession', 'getSessionInfo', 'listSessionsOfGroup', 'listSessionsOfAuthor', 'getText', 'setText', 'getHTML', 'createPad', 'getRevisionsCount', 'padUsersCount', 'padUsers', 'deletePad', 'getReadOnlyID', 'setPublicStatus', 'getPublicStatus', 'setPassword', 'isPasswordProtected', 'listAuthorsOfPad', 'getLastEdited', 'sendClientsMessage', 'listAllPads'];
     _fn = function(functionName) {
       return api[functionName] = function(args, callback) {
         if (arguments.length === 1 && _.isFunction(args)) {
