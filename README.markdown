@@ -13,7 +13,7 @@ You can install it via NPM:
 
 or add it to your `package.json` dependencies:
 
-    "etherpad-lite-client": "0.4.x"
+    "etherpad-lite-client": "0.5.x"
 
 
 Usage
