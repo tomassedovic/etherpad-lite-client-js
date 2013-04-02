@@ -3,6 +3,11 @@
   "description": "Wrapper for the Etherpad Lite API",
   "version": "0.5.0",
   "author": "Tomas Sedovic <tomas@sedovic.cz>",
+  "contributors": [
+    "Simon Gaeremynck http://gaeremynck.com/",
+    "yourcelf https://github.com/yourcelf",
+    "anshulc https://github.com/anshulc"
+  ],
   "keywords": ["etherpad", "api"],
   "homepage": "https://github.com/tomassedovic/etherpad-lite-client-js",
   "repository": {
