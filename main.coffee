@@ -1,7 +1,9 @@
 http = require 'http'
+https = require 'https'
 url = require 'url'
 querystring = require 'querystring'
 _ = require 'underscore'
+retriever = null
 
 
 exports.connect = (options={}) ->
@@ -14,6 +16,9 @@ exports.connect = (options={}) ->
   api.options.host ||= 'localhost'
   api.options.port ||= 9001
 
+  retriever = http
+  if api.options.port is 443
+    retriever = https
 
   api.call = (functionName, functionArgs, callback) ->
     rootPath = api.options.rootPath or '/api/1.2.1/'
@@ -24,7 +29,7 @@ exports.connect = (options={}) ->
       path: rootPath + functionName + '?' + querystring.stringify apiOptions
 
     chunks = []
-    req = http.get httpOptions, (res) ->
+    req = retriever.get httpOptions, (res) ->
       res.on 'data', (data) ->
         chunks.push(data)
       res.on 'end', () ->
@@ -62,6 +67,7 @@ exports.connect = (options={}) ->
     'getText'
     'setText'
     'getHTML'
+    'setHTML'
     'createPad'
     'getRevisionsCount'
     'padUsersCount'
