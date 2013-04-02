@@ -67,6 +67,7 @@ exports.connect = (options={}) ->
     'getText'
     'setText'
     'getHTML'
+    'setHTML'
     'createPad'
     'getRevisionsCount'
     'padUsersCount'
