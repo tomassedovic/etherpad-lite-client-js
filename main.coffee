@@ -53,6 +53,7 @@ exports.connect = (options={}) ->
     'createGroupIfNotExistsFor'
     'deleteGroup'
     'listPads'
+    'createDiffHTML'
     'createGroupPad'
     'listAllGroups'
     'createAuthor'
@@ -82,6 +83,9 @@ exports.connect = (options={}) ->
     'getLastEdited'
     'sendClientsMessage'
     'listAllPads'
+    'checkToken'
+    'getChatHistory'
+    'getChatHead'
   ]
 
   for functionName in apiFunctions
