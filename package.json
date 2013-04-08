@@ -1,11 +1,12 @@
 {
   "name": "etherpad-lite-client",
   "description": "Wrapper for the Etherpad Lite API",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "author": "Tomas Sedovic <tomas@sedovic.cz>",
   "contributors": [
     "Simon Gaeremynck http://gaeremynck.com/",
     "yourcelf https://github.com/yourcelf",
+    "Michael Lutonsky http://luto.at/",
     "anshulc https://github.com/anshulc"
   ],
   "keywords": ["etherpad", "api"],
