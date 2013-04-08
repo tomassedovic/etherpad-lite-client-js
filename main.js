@@ -74,7 +74,7 @@
         }, null);
       });
     };
-    apiFunctions = ['createGroup', 'createGroupIfNotExistsFor', 'deleteGroup', 'listPads', 'createGroupPad', 'listAllGroups', 'createAuthor', 'createAuthorIfNotExistsFor', 'listPadsOfAuthor', 'getAuthorName', 'createSession', 'deleteSession', 'getSessionInfo', 'listSessionsOfGroup', 'listSessionsOfAuthor', 'getText', 'setText', 'getHTML', 'setHTML', 'createPad', 'getRevisionsCount', 'padUsersCount', 'padUsers', 'deletePad', 'getReadOnlyID', 'setPublicStatus', 'getPublicStatus', 'setPassword', 'isPasswordProtected', 'listAuthorsOfPad', 'getLastEdited', 'sendClientsMessage', 'listAllPads'];
+    apiFunctions = ['createGroup', 'createGroupIfNotExistsFor', 'deleteGroup', 'listPads', 'createDiffHTML', 'createGroupPad', 'listAllGroups', 'createAuthor', 'createAuthorIfNotExistsFor', 'listPadsOfAuthor', 'getAuthorName', 'createSession', 'deleteSession', 'getSessionInfo', 'listSessionsOfGroup', 'listSessionsOfAuthor', 'getText', 'setText', 'getHTML', 'setHTML', 'createPad', 'getRevisionsCount', 'padUsersCount', 'padUsers', 'deletePad', 'getReadOnlyID', 'setPublicStatus', 'getPublicStatus', 'setPassword', 'isPasswordProtected', 'listAuthorsOfPad', 'getLastEdited', 'sendClientsMessage', 'listAllPads', 'checkToken', 'getChatHistory', 'getChatHead'];
     _fn = function(functionName) {
       return api[functionName] = function(args, callback) {
         if (arguments.length === 1 && _.isFunction(args)) {
