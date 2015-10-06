@@ -21,7 +21,7 @@ exports.connect = (options={}) ->
     retriever = https
 
   api.call = (functionName, functionArgs, callback) ->
-    rootPath = api.options.rootPath or '/api/1.2.1/'
+    rootPath = api.options.rootPath or '/api/1.2.12/'
     apiOptions = _.extend { 'apikey': @options.apikey }, functionArgs
     httpOptions =
       host: @options.host
@@ -48,18 +48,19 @@ exports.connect = (options={}) ->
       callback { code: -1, message: (error.message or error) }, null
 
 
+  # https://raw.githubusercontent.com/ether/etherpad-lite/develop/src/node/handler/APIHandler.js
   apiFunctions = [
     'createGroup'
     'createGroupIfNotExistsFor'
     'deleteGroup'
     'listPads'
+    'listAllPads'
     'createDiffHTML'
+    'createPad'
     'createGroupPad'
-    'listAllGroups'
     'createAuthor'
     'createAuthorIfNotExistsFor'
     'listPadsOfAuthor'
-    'getAuthorName'
     'createSession'
     'deleteSession'
     'getSessionInfo'
@@ -69,23 +70,34 @@ exports.connect = (options={}) ->
     'setText'
     'getHTML'
     'setHTML'
-    'createPad'
+    'getAttributePool'
     'getRevisionsCount'
-    'padUsersCount'
-    'padUsers'
+    'getSavedRevisionsCount'
+    'listSavedRevisions'
+    'saveRevision'
+    'getRevisionChangeset'
+    'getLastEdited'
     'deletePad'
+    'copyPad'
+    'movePad'
     'getReadOnlyID'
+    'getPadID'
     'setPublicStatus'
     'getPublicStatus'
     'setPassword'
     'isPasswordProtected'
     'listAuthorsOfPad'
-    'getLastEdited'
+    'padUsersCount'
+    'getAuthorName'
+    'padUsers'
     'sendClientsMessage'
-    'listAllPads'
+    'listAllGroups'
     'checkToken'
+    'appendChatMessage'
+    'getChatHistory'
     'getChatHistory'
     'getChatHead'
+    'restoreRevision'
   ]
 
   for functionName in apiFunctions

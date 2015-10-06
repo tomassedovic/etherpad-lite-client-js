@@ -32,7 +32,7 @@
     }
     api.call = function(functionName, functionArgs, callback) {
       var apiOptions, chunks, httpOptions, req, rootPath;
-      rootPath = api.options.rootPath || '/api/1.2.1/';
+      rootPath = api.options.rootPath || '/api/1.2.12/';
       apiOptions = _.extend({
         'apikey': this.options.apikey
       }, functionArgs);
@@ -74,7 +74,7 @@
         }, null);
       });
     };
-    apiFunctions = ['createGroup', 'createGroupIfNotExistsFor', 'deleteGroup', 'listPads', 'createDiffHTML', 'createGroupPad', 'listAllGroups', 'createAuthor', 'createAuthorIfNotExistsFor', 'listPadsOfAuthor', 'getAuthorName', 'createSession', 'deleteSession', 'getSessionInfo', 'listSessionsOfGroup', 'listSessionsOfAuthor', 'getText', 'setText', 'getHTML', 'setHTML', 'createPad', 'getRevisionsCount', 'padUsersCount', 'padUsers', 'deletePad', 'getReadOnlyID', 'setPublicStatus', 'getPublicStatus', 'setPassword', 'isPasswordProtected', 'listAuthorsOfPad', 'getLastEdited', 'sendClientsMessage', 'listAllPads', 'checkToken', 'getChatHistory', 'getChatHead'];
+    apiFunctions = ['createGroup', 'createGroupIfNotExistsFor', 'deleteGroup', 'listPads', 'listAllPads', 'createDiffHTML', 'createPad', 'createGroupPad', 'createAuthor', 'createAuthorIfNotExistsFor', 'listPadsOfAuthor', 'createSession', 'deleteSession', 'getSessionInfo', 'listSessionsOfGroup', 'listSessionsOfAuthor', 'getText', 'setText', 'getHTML', 'setHTML', 'getAttributePool', 'getRevisionsCount', 'getSavedRevisionsCount', 'listSavedRevisions', 'saveRevision', 'getRevisionChangeset', 'getLastEdited', 'deletePad', 'copyPad', 'movePad', 'getReadOnlyID', 'getPadID', 'setPublicStatus', 'getPublicStatus', 'setPassword', 'isPasswordProtected', 'listAuthorsOfPad', 'padUsersCount', 'getAuthorName', 'padUsers', 'sendClientsMessage', 'listAllGroups', 'checkToken', 'appendChatMessage', 'getChatHistory', 'getChatHistory', 'getChatHead', 'restoreRevision'];
     _fn = function(functionName) {
       return api[functionName] = function(args, callback) {
         if (arguments.length === 1 && _.isFunction(args)) {
