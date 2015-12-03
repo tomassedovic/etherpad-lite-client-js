@@ -46,8 +46,21 @@ etherpad.createGroupPad(args, function(error, data) {
 })
 ```
 
+Any `options` passed to `api.connect` will be passed to `http(s).request` as `options` so you can specify any `.request` options. All `options` are described https://nodejs.org/api/https.html#https_https_request_options_callback
 
+For example, if you have Etherpad configured locally, running SSL on 9001 with self signed certificates, you can configure client as follows:
 
+```javascript
+etherpad = api.connect({
+  apikey: 'UcCGa6fPpkLflvPVBysOKs9eeuWV08Ul',
+  host: 'localhost',
+  port: 9001,
+  ssl: true,
+  rejectUnauthorized: false
+})
+```
+
+Where `ssl` switches EP client to HTTPS client and `rejectUnauthorized: false` disables CA certificate check. For more options see https://nodejs.org/api/https.html#https_https_request_options_callback.
 
 ### Callback & Returned Data ###
 

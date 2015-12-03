@@ -17,16 +17,13 @@ exports.connect = (options={}) ->
   api.options.port ||= 9001
 
   retriever = http
-  if api.options.port is 443
+  if api.options.port is 443 or api.options.ssl
     retriever = https
 
   api.call = (functionName, functionArgs, callback) ->
     rootPath = api.options.rootPath or '/api/1.2.12/'
     apiOptions = _.extend { 'apikey': @options.apikey }, functionArgs
-    httpOptions =
-      host: @options.host
-      port: @options.port
-      path: rootPath + functionName + '?' + querystring.stringify apiOptions
+    httpOptions = _.extend @options, {path: rootPath + functionName + '?' + querystring.stringify apiOptions}
 
     chunks = []
     req = retriever.get httpOptions, (res) ->
