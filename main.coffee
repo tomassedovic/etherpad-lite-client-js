@@ -37,7 +37,10 @@ exports.connect = (options={}) ->
           return
 
         if response.code is 0 and response.message is 'ok'
-          callback null, response.data
+            if response.data
+                callback null, response.data
+            else
+                callback null, response
         else
           callback { code: response.code, message: response.message}, null
 

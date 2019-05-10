@@ -93,6 +93,15 @@ It has two attributes: `code` and `message`:
 
 `data` is a JavaScript object from the Etherpad response or `null` (on error).
 
+#### Development ####
+
+The author prefers pull requests for changes. To do this, first fork the repository, then checkout your fork and apply your changes. Then create your pull request.
+Please create one pull request per change.
+
+Do not change main.js but instead only main.coffee, use "npm i Coffeescript@1.10.0 -g" in order to prevent too many unwanted and untested changes.
+After you made your changes to main.coffee in your fork, on linux run "cake build" in the root of your project, it will generate a new main.js file.
+On windows you can compile by issuing "coffee --compile main.coffee" command.
+
 
 License
 -------
