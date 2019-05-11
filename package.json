@@ -4,11 +4,11 @@
   "version": "0.8.0",
   "author": "Tomas Sedovic <tomas@sedovic.cz>",
   "contributors": [
-    "Simon Gaeremynck http://gaeremynck.com/",
-    "yourcelf https://github.com/yourcelf",
-    "Michael Lutonsky http://luto.at/",
+    "anshulc https://github.com/anshulc",
     "haraldjordan78 https://github.com/haraldjordan78",
-    "anshulc https://github.com/anshulc"
+    "Michael Lutonsky http://luto.at/",
+    "Simon Gaeremynck http://gaeremynck.com/",
+    "yourcelf https://github.com/yourcelf"
   ],
   "keywords": ["etherpad", "api"],
   "homepage": "https://github.com/tomassedovic/etherpad-lite-client-js",
