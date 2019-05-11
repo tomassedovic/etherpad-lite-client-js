@@ -57,7 +57,11 @@
             return;
           }
           if (response.code === 0 && response.message === 'ok') {
-            return callback(null, response.data);
+            if (response.data) {
+              return callback(null, response.data);
+            } else {
+              return callback(null, response);
+            }
           } else {
             return callback({
               code: response.code,
