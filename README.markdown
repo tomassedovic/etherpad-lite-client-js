@@ -13,7 +13,7 @@ $ npm install etherpad-lite-client
 ```
 or add it to your `package.json` dependencies:
 ```json
-"etherpad-lite-client": "0.7.x"
+"etherpad-lite-client": "0.9.x"
 ```
 
 Usage
