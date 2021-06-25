@@ -47,7 +47,11 @@
         return res.on('end', function() {
           var error, error1, response;
           try {
-            response = JSON.parse(chunks.join(''));
+            var data = chunks.join();
+            if (Buffer.isBuffer(data)) {
+              data = data.toString();
+            }
+            response = JSON.parse(data);
           } catch (error1) {
             error = error1;
             callback({
