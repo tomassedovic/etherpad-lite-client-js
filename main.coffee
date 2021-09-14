@@ -21,7 +21,7 @@ exports.connect = (options={}) ->
     retriever = https
 
   api.call = (functionName, functionArgs, callback) ->
-    rootPath = api.options.rootPath or '/api/1.2.12/'
+    rootPath = api.options.rootPath or '/api/1.2.15/'
     apiOptions = _.extend { 'apikey': @options.apikey }, functionArgs
     httpOptions = _.extend @options, {path: rootPath + functionName + '?' + querystring.stringify apiOptions}
 
@@ -31,6 +31,10 @@ exports.connect = (options={}) ->
         chunks.push(data)
       res.on 'end', () ->
         try
+          data = chunks.join('');
+          if Buffer.isBuffer(data)
+            data = data.toString();
+            response = JSON.parse(data);
           response = JSON.parse chunks.join('')
         catch error
           callback { code: -1, message: 'cannot parse the API response' }, null
@@ -98,6 +102,9 @@ exports.connect = (options={}) ->
     'getChatHistory'
     'getChatHead'
     'restoreRevision'
+    'appendText'
+    'getStats'
+    'copyPadWithoutHistory'
   ]
 
   for functionName in apiFunctions

@@ -32,7 +32,7 @@
     }
     api.call = function(functionName, functionArgs, callback) {
       var apiOptions, chunks, httpOptions, req, rootPath;
-      rootPath = api.options.rootPath || '/api/1.2.12/';
+      rootPath = api.options.rootPath || '/api/1.2.15/';
       apiOptions = _.extend({
         'apikey': this.options.apikey
       }, functionArgs);
@@ -45,8 +45,13 @@
           return chunks.push(data);
         });
         return res.on('end', function() {
-          var error, response;
+          var data, error, response;
           try {
+            data = chunks.join('');
+            if (Buffer.isBuffer(data)) {
+              data = data.toString();
+              response = JSON.parse(data);
+            }
             response = JSON.parse(chunks.join(''));
           } catch (error1) {
             error = error1;
@@ -77,7 +82,7 @@
         }, null);
       });
     };
-    apiFunctions = ['createGroup', 'createGroupIfNotExistsFor', 'deleteGroup', 'listPads', 'listAllPads', 'createDiffHTML', 'createPad', 'createGroupPad', 'createAuthor', 'createAuthorIfNotExistsFor', 'listPadsOfAuthor', 'createSession', 'deleteSession', 'getSessionInfo', 'listSessionsOfGroup', 'listSessionsOfAuthor', 'getText', 'setText', 'getHTML', 'setHTML', 'getAttributePool', 'getRevisionsCount', 'getSavedRevisionsCount', 'listSavedRevisions', 'saveRevision', 'getRevisionChangeset', 'getLastEdited', 'deletePad', 'copyPad', 'movePad', 'getReadOnlyID', 'getPadID', 'setPublicStatus', 'getPublicStatus', 'setPassword', 'isPasswordProtected', 'listAuthorsOfPad', 'padUsersCount', 'getAuthorName', 'padUsers', 'sendClientsMessage', 'listAllGroups', 'checkToken', 'appendChatMessage', 'getChatHistory', 'getChatHistory', 'getChatHead', 'restoreRevision'];
+    apiFunctions = ['createGroup', 'createGroupIfNotExistsFor', 'deleteGroup', 'listPads', 'listAllPads', 'createDiffHTML', 'createPad', 'createGroupPad', 'createAuthor', 'createAuthorIfNotExistsFor', 'listPadsOfAuthor', 'createSession', 'deleteSession', 'getSessionInfo', 'listSessionsOfGroup', 'listSessionsOfAuthor', 'getText', 'setText', 'getHTML', 'setHTML', 'getAttributePool', 'getRevisionsCount', 'getSavedRevisionsCount', 'listSavedRevisions', 'saveRevision', 'getRevisionChangeset', 'getLastEdited', 'deletePad', 'copyPad', 'movePad', 'getReadOnlyID', 'getPadID', 'setPublicStatus', 'getPublicStatus', 'setPassword', 'isPasswordProtected', 'listAuthorsOfPad', 'padUsersCount', 'getAuthorName', 'padUsers', 'sendClientsMessage', 'listAllGroups', 'checkToken', 'appendChatMessage', 'getChatHistory', 'getChatHistory', 'getChatHead', 'restoreRevision', 'appendText', 'getStats', 'copyPadWithoutHistory'];
     fn = function(functionName) {
       return api[functionName] = function(args, callback) {
         if (arguments.length === 1 && _.isFunction(args)) {
