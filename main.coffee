@@ -2,7 +2,6 @@ http = require 'http'
 https = require 'https'
 url = require 'url'
 querystring = require 'querystring'
-_ = require 'underscore'
 retriever = null
 
 
@@ -11,7 +10,7 @@ exports.connect = (options={}) ->
     throw new Error('You must specify etherpad-lite apikey')
 
   api = {}
-  api.options = _.extend {}, options
+  api.options = Object.assign {}, options
 
   api.options.host ||= 'localhost'
   api.options.port ||= 9001
@@ -21,9 +20,9 @@ exports.connect = (options={}) ->
     retriever = https
 
   api.call = (functionName, functionArgs, callback) ->
-    rootPath = api.options.rootPath or '/api/1.2.12/'
-    apiOptions = _.extend { 'apikey': @options.apikey }, functionArgs
-    httpOptions = _.extend @options, {path: rootPath + functionName + '?' + querystring.stringify apiOptions}
+    rootPath = api.options.rootPath or '/api/1.2.15/'
+    apiOptions = Object.assign { 'apikey': @options.apikey }, functionArgs
+    httpOptions = Object.assign @options, {path: rootPath + functionName + '?' + querystring.stringify apiOptions}
 
     chunks = []
     req = retriever.get httpOptions, (res) ->
@@ -31,6 +30,10 @@ exports.connect = (options={}) ->
         chunks.push(data)
       res.on 'end', () ->
         try
+          data = chunks.join('');
+          if Buffer.isBuffer(data)
+            data = data.toString();
+            response = JSON.parse(data);
           response = JSON.parse chunks.join('')
         catch error
           callback { code: -1, message: 'cannot parse the API response' }, null
@@ -98,12 +101,15 @@ exports.connect = (options={}) ->
     'getChatHistory'
     'getChatHead'
     'restoreRevision'
+    'appendText'
+    'getStats'
+    'copyPadWithoutHistory'
   ]
 
   for functionName in apiFunctions
     do (functionName) ->
       api[functionName] = (args, callback) ->
-        if arguments.length is 1 and _.isFunction(args)
+        if arguments.length is 1 and typeof args == 'function'
           callback = args
           args = {}
 
