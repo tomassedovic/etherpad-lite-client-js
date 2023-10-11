@@ -2,7 +2,6 @@ http = require 'http'
 https = require 'https'
 url = require 'url'
 querystring = require 'querystring'
-_ = require 'underscore'
 retriever = null
 
 
@@ -11,7 +10,7 @@ exports.connect = (options={}) ->
     throw new Error('You must specify etherpad-lite apikey')
 
   api = {}
-  api.options = _.extend {}, options
+  api.options = Object.assign {}, options
 
   api.options.host ||= 'localhost'
   api.options.port ||= 9001
@@ -22,8 +21,8 @@ exports.connect = (options={}) ->
 
   api.call = (functionName, functionArgs, callback) ->
     rootPath = api.options.rootPath or '/api/1.2.15/'
-    apiOptions = _.extend { 'apikey': @options.apikey }, functionArgs
-    httpOptions = _.extend @options, {path: rootPath + functionName + '?' + querystring.stringify apiOptions}
+    apiOptions = Object.assign { 'apikey': @options.apikey }, functionArgs
+    httpOptions = Object.assign @options, {path: rootPath + functionName + '?' + querystring.stringify apiOptions}
 
     chunks = []
     req = retriever.get httpOptions, (res) ->
@@ -110,7 +109,7 @@ exports.connect = (options={}) ->
   for functionName in apiFunctions
     do (functionName) ->
       api[functionName] = (args, callback) ->
-        if arguments.length is 1 and _.isFunction(args)
+        if arguments.length is 1 and typeof args == 'function'
           callback = args
           args = {}
 

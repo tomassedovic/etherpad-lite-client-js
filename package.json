@@ -20,7 +20,6 @@
     "url": "git://github.com/tomassedovic/etherpad-lite-client-js.git"
   },
   "dependencies": {
-    "underscore": "1.13.1"
   },
   "devDependencies": {
     "coffee-script": "~1"
